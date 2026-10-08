@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "siteName": "Eya Chebbah",
+    "title": "Eya Chebbah — Interior Designer",
+    "description": "Portfolio of Eya Chebbah, interior designer based in Mahdia, Tunisia."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "education": "Education",
+    "contact": "Contact",
+    "languageSwitcherLabel": "Change language",
+    "skipToContent": "Skip to content"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "madeWith": "Interior architecture portfolio"
+  },
+  "home": {
+    "tagline": "Interior Designer",
+    "heroImageAlt": "Minimalist living room with concrete walls, a blue velvet armchair, and a floating staircase",
+    "contactCta": "Let's talk about your project",
+    "statsClients": "Clients",
+    "statsProjects": "Projects",
+    "testimonialsEyebrow": "Testimonials",
+    "testimonialsTitle": "What clients say",
+    "testimonialsSampleBadge": "Sample"
+  },
+  "about": {
+    "title": "About",
+    "bioTitle": "Bio",
+    "approachTitle": "Approach",
+    "approachBody": "TODO: no approach/philosophy statement was provided in the resume.",
+    "skillsTitle": "Skills & software",
+    "languagesTitle": "Languages",
+    "certificationsTitle": "Certifications & training",
+    "activitiesTitle": "Activities & engagement",
+    "teachingTitle": "Teaching & mentoring",
+    "achievementsTitle": "Achievements",
+    "pressTitle": "Press & recognition",
+    "drivingLicenseLabel": "License"
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Professional experience, and a downloadable CV",
+    "downloadEn": "Download CV (English)",
+    "downloadFr": "Download CV (French)"
+  },
+  "education": {
+    "title": "Education"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch",
+    "email": "Email",
+    "phone": "Phone",
+    "linkedin": "LinkedIn",
+    "formTitle": "Send a message",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submit": "Send message",
+    "submitting": "Sending...",
+    "successTitle": "Message sent",
+    "successBody": "Thank you — your message has been received.",
+    "errorTitle": "Something went wrong",
+    "errorBody": "Please check the form and try again.",
+    "validation": {
+      "nameRequired": "Please enter your name.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Please enter a message.",
+      "messageTooShort": "Your message should be at least 10 characters."
+    }
+  }
+}

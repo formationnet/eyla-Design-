@@ -10,6 +10,7 @@ export async function SiteHeader() {
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
     { href: "/experience", label: t("experience") },
+    { href: "/projects", label: t("projects") },
     { href: "/education", label: t("education") },
     { href: "/contact", label: t("contact") },
   ] as const;

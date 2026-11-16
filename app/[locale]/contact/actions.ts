@@ -1,5 +1,6 @@
 "use server";
 
+import { profile } from "@/content/profile";
 import {
   contactSchema,
   type ContactFieldErrors,
@@ -16,6 +17,11 @@ export async function submitContactForm(
     message: formData.get("message"),
     company: formData.get("company"),
   };
+  const values = {
+    name: String(raw.name ?? ""),
+    email: String(raw.email ?? ""),
+    message: String(raw.message ?? ""),
+  };
 
   const result = contactSchema.safeParse(raw);
 
@@ -27,7 +33,7 @@ export async function submitContactForm(
         fieldErrors[field] = issue.message;
       }
     }
-    return { status: "error", fieldErrors };
+    return { status: "error", fieldErrors, values };
   }
 
   // Honeypot tripped: silently report success to the bot without sending anything.
@@ -35,13 +41,33 @@ export async function submitContactForm(
     return { status: "success", fieldErrors: {} };
   }
 
-  // TODO: no email delivery provider is configured yet. Wire up a real
-  // transport (e.g. Resend, Postmark, SMTP) here. For now the submission
-  // is only logged server-side so the form can be exercised end-to-end.
-  console.info("[contact] message received", {
-    name: result.data.name,
-    email: result.data.email,
-  });
+  // Delivery via formsubmit.co (server-side, so the recipient stays private).
+  // The first submission triggers an activation email to the recipient.
+  try {
+    const res = await fetch(
+      `https://formsubmit.co/ajax/${profile.contact.email}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: result.data.name,
+          email: result.data.email,
+          message: result.data.message,
+          _subject: `Portfolio contact — ${result.data.name}`,
+          _replyto: result.data.email,
+          _template: "table",
+          _captcha: "false",
+        }),
+      },
+    );
+    if (!res.ok) throw new Error(`formsubmit responded ${res.status}`);
+  } catch (error) {
+    console.error("[contact] delivery failed", error);
+    return { status: "error", fieldErrors: {}, values };
+  }
 
   return { status: "success", fieldErrors: {} };
 }

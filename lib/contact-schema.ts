@@ -16,6 +16,8 @@ export type ContactFieldErrors = Partial<
 export interface ContactFormState {
   status: "idle" | "success" | "error";
   fieldErrors: ContactFieldErrors;
+  /** Echoed back on error so the form keeps what the user typed. */
+  values?: { name: string; email: string; message: string };
 }
 
 export const initialContactFormState: ContactFormState = {

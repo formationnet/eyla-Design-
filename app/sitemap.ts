@@ -3,7 +3,7 @@ import { routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site-config";
 import { buildLanguageAlternates } from "@/lib/seo";
 
-const staticPaths = ["", "/about", "/experience", "/education", "/contact"];
+const staticPaths = ["", "/about", "/experience", "/projects", "/education", "/contact"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return staticPaths.flatMap((path) =>

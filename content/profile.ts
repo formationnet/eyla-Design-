@@ -118,8 +118,8 @@ export const profile: Profile = {
     fr: "Designer d'intérieur",
   },
   bio: {
-    en: "Interior Designer | Founder of EYLA Design | Entrepreneurship Mentor | Founder of Renova Design",
-    fr: "Designer d'intérieur | Fondatrice d'EYLA Design | Mentor en entrepreneuriat | Fondatrice de Renova Design",
+    en: "Interior Designer | Space Designer | Founder of EYLA Design | Entrepreneurship Mentor | Founder of Renova Design",
+    fr: "Designer d'intérieur | Designer d'espace | Fondatrice d'EYLA Design | Mentor en entrepreneuriat | Fondatrice de Renova Design",
   },
   quote: {
     en: "Challenge yourself to change yourself",

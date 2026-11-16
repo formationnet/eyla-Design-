@@ -9,6 +9,7 @@
     "about": "About",
     "experience": "Experience",
     "education": "Education",
+    "projects": "Projects",
     "contact": "Contact",
     "languageSwitcherLabel": "Change language",
     "skipToContent": "Skip to content"
@@ -49,6 +50,11 @@
   },
   "education": {
     "title": "Education"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected interior architecture work",
+    "empty": "Projects are coming soon."
   },
   "contact": {
     "title": "Contact",

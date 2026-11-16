@@ -44,6 +44,7 @@ export function ContactForm() {
           id="name"
           name="name"
           autoComplete="name"
+          defaultValue={state.values?.name}
           required
           aria-invalid={Boolean(state.fieldErrors.name)}
           aria-describedby={state.fieldErrors.name ? "name-error" : undefined}
@@ -63,6 +64,7 @@ export function ContactForm() {
           name="email"
           type="email"
           autoComplete="email"
+          defaultValue={state.values?.email}
           required
           aria-invalid={Boolean(state.fieldErrors.email)}
           aria-describedby={state.fieldErrors.email ? "email-error" : undefined}
@@ -81,6 +83,7 @@ export function ContactForm() {
           id="message"
           name="message"
           rows={6}
+          defaultValue={state.values?.message}
           required
           aria-invalid={Boolean(state.fieldErrors.message)}
           aria-describedby={

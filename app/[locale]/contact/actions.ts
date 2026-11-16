@@ -1,5 +1,6 @@
 "use server";
 
+import { siteUrl } from "@/lib/site-config";
 import { profile } from "@/content/profile";
 import {
   contactSchema,
@@ -45,12 +46,15 @@ export async function submitContactForm(
   // The first submission triggers an activation email to the recipient.
   try {
     const res = await fetch(
-      `https://formsubmit.co/ajax/${profile.contact.email}`,
+   `https://formsubmit.co/ajax/ayachebbah@gmail.com`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
+          // formsubmit.co rejects requests that lack a browser-style origin.
+          Origin: siteUrl,
+          Referer: `${siteUrl}/contact`,
         },
         body: JSON.stringify({
           name: result.data.name,
@@ -63,7 +67,10 @@ export async function submitContactForm(
         }),
       },
     );
-    if (!res.ok) throw new Error(`formsubmit responded ${res.status}`);
+    const body = await res.json().catch(() => null);
+    if (!res.ok || body?.success === "false" || body?.success === false) {
+      throw new Error(`formsubmit rejected: ${body?.message ?? res.status}`);
+    }
   } catch (error) {
     console.error("[contact] delivery failed", error);
     return { status: "error", fieldErrors: {}, values };
